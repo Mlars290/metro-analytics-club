@@ -33,13 +33,15 @@ A club management dashboard for Metropolitan State University's Analytics Club. 
 ## Demo Accounts
 
 Sign in by username on the login screen:
-- `maria` — President (full access)
-- `sarah` — Vice President
-- `david` — Secretary
-- `jamie` — Treasurer
-- `yuezhang` — Professor / Advisor (read-only)
-- `alex`, `priya`, `noah`, `emma` — Members
 
+- `president` — President (full access)
+- `vicepresident` — Vice President
+- `secretary` — Secretary
+- `treasurer` — Treasurer
+- `advisor` — Professor / Advisor (read-only)
+- `member` — Member
+
+> Demo uses placeholder accounts only. No real user data is included.
 ## Local Development
 
 ```bash
