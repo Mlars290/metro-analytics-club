@@ -2,7 +2,7 @@
 
 A club management dashboard for Metropolitan State University's Analytics Club. Built to help officers and members track competitions, teams, weekly check-ins, and member progress in one place.
 
-**Live demo:** _add your Vercel URL here once deployed_
+**Live demo:** metro-analytics-club.vercel.app
 
 ## Features
 
