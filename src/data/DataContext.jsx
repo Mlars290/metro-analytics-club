@@ -20,7 +20,8 @@ import {
 const DataContext = createContext(null)
 
 // ----- Persistence helpers -----
-const PERSIST_KEY = 'mac_data_v2'
+const PERSIST_KEY = 'mac_data_v3'  // bumped from v2 to clear caches that
+                                   // referenced personal names like 'mem-maria'.
 const loadPersisted = () => {
   try { return JSON.parse(localStorage.getItem(PERSIST_KEY) || 'null') } catch { return null }
 }

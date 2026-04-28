@@ -4,62 +4,58 @@ A club management dashboard for Metropolitan State University's Analytics Club. 
 
 **Live demo:** _add your Vercel URL here once deployed_
 
----
-
 ## Features
 
-- Six roles with permission-aware UI: President, Vice President, Secretary, Treasurer, Professor/Advisor, Member  
-- Role-based login system (no personal accounts required for demo use)  
-- Competitions library (Kaggle, MinneMUDAC, Hackathons, Portfolio Projects)  
-- Teams with progress tracking, member lists, and per-team detail pages  
-- GitHub Project Tracker — repo links + deliverables checklist (README, notebook, visuals, write-up)  
-- Weekly Check-ins — what we did, blockers, next steps, help needed  
-- Portfolio Readiness Score for each team (0–100% based on deliverables)  
-- Skill-based Team Matching (balanced teams: beginner / intermediate / advanced)  
-- Find a Teammate board  
-- Meeting Notes (Secretary/President)  
-- Budget Notes (Treasurer/President)  
-- Resources hub for tutorials and competition prep  
-- Achievements with badges  
-- Teams Update Generator (ready-to-share weekly updates)  
-- Needs Attention Dashboard (deadlines, overdue check-ins, requests)  
-- Analytics Page (rankings, skill coverage, leaderboard)
-
----
+- **Six roles** with permission-aware UI: President, Vice President, Secretary, Treasurer, Professor/Advisor, Member
+- **Username-based login** with President "preview as other role" support
+- **Competitions** library (Kaggle, MinneMUDAC, Hackathons, Portfolio Projects)
+- **Teams** with progress tracking, member lists, and per-team detail pages
+- **GitHub Project Tracker** — repo links + deliverables checklist (README, notebook, visuals, write-up)
+- **Weekly Check-ins** — what we did, blockers, next steps, help needed
+- **Portfolio Readiness Score** for each team (0-100% based on deliverables)
+- **Skill-based Team Matching** that suggests balanced teams (mix of beginner / intermediate / advanced)
+- **Find a Teammate** board — members can post "looking for a team"
+- **Meeting Notes** with action items and decisions (Secretary/President)
+- **Budget Notes** (Treasurer/President)
+- **Resources hub** for tutorials, templates, and competition prep
+- **Achievements** with badges on member profiles
+- **Copy Teams Update** — generates a ready-to-paste Microsoft Teams weekly update
+- **Needs Attention** dashboard alerts (overdue check-ins, urgent deadlines, pending requests)
+- **Analytics** page with portfolio rankings, skill coverage, and achievement leaderboard
 
 ## Tech Stack
 
-- React 18 + Vite  
-- Tailwind CSS  
-- React Router  
-- localStorage (Phase 2 will migrate to Supabase)
+- React 18 + Vite
+- Tailwind CSS
+- React Router
+- localStorage (no backend yet — Phase 2 will move to Supabase)
 
----
+## Demo Accounts
 
-## Demo Access
+Sign in by username on the login screen:
+- `maria` — President (full access)
+- `sarah` — Vice President
+- `david` — Secretary
+- `jamie` — Treasurer
+- `yuezhang` — Professor / Advisor (read-only)
+- `alex`, `priya`, `noah`, `emma` — Members
 
-Use the following demo accounts:
+## Local Development
 
-- `president` — President  
-- `vicepresident` — Vice President  
-- `secretary` — Secretary  
-- `treasurer` — Treasurer  
-- `advisor` — Professor / Advisor (read-only)  
-- `member` — Member  
+```bash
+npm install
+npm run dev
+```
 
-> Demo uses placeholder accounts only. No real user data is included.
+Open http://localhost:5173
 
----
+## Build for Production
+
+```bash
+npm run build
+```
 
 ## Roadmap
 
-- Phase 2: Supabase integration (real authentication + shared data)  
-- Phase 3: Enhanced dashboard (priority panel, smart matching, automated reports)  
-
----
-
-## Notes
-
-- This is a **demo / prototype system** built to showcase club management and competition tracking features  
-- Designed to simulate a real-world analytics club workflow  
-- Can be expanded into a full production platform with backend integration
+- **Phase 2:** Replace localStorage with Supabase for shared data and real authentication
+- **Phase 3:** Polish President dashboard with priority panel, smart matching suggestions, and weekly report generator

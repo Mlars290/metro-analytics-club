@@ -18,8 +18,9 @@ import { initialMembers } from './sampleData'
 
 const AuthContext = createContext(null)
 
-const USERS_KEY   = 'mac_users'
-const SESSION_KEY = 'mac_session'
+const USERS_KEY   = 'mac_users_v2'   // bumped from 'mac_users' to invalidate
+                                     // pre-rename caches with personal names.
+const SESSION_KEY = 'mac_session_v2' // bumped so old sessions don't reference dead usernames.
 const VIEW_AS_KEY = 'mac_view_as'
 
 // Seed accounts so the app feels alive on first run.
