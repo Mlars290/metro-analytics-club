@@ -108,17 +108,17 @@ function LoginForm() {
   // Demo accounts shown as role-based cards. Each represents what that role
   // can see and do — we hide personal usernames in favor of role responsibilities.
   const demoAccounts = [
-    { username: 'maria',    role: 'President',           icon: '👑',
+    { username: 'president',  role: 'President',           icon: '👑',
       desc: 'Full system access. Manage members, teams, competitions, and approve requests.' },
-    { username: 'sarah',    role: 'Vice President',      icon: '🛡️',
+    { username: 'vp',         role: 'Vice President',      icon: '🛡️',
       desc: 'Operations manager. Create teams, edit competitions, post updates.' },
-    { username: 'david',    role: 'Secretary',           icon: '📝',
+    { username: 'secretary',  role: 'Secretary',           icon: '📝',
       desc: 'Information hub. Meeting notes, action items, and announcements.' },
-    { username: 'jamie',    role: 'Treasurer',           icon: '💰',
+    { username: 'treasurer',  role: 'Treasurer',           icon: '💰',
       desc: 'View access plus budget notes. No editing of teams or competitions.' },
-    { username: 'yuezhang', role: 'Professor / Advisor', icon: '🎓',
+    { username: 'advisor',    role: 'Professor / Advisor', icon: '🎓',
       desc: 'Read-only mentor view. Can leave feedback for the officers.' },
-    { username: 'alex',     role: 'Member',              icon: '👤',
+    { username: 'member1',    role: 'Member',              icon: '👤',
       desc: 'Edit your profile, join teams, submit weekly check-ins.' }
   ].filter((d) => users.some((u) => u.username === d.username))
 
@@ -131,7 +131,7 @@ function LoginForm() {
         <div>
           <label className="label">Username</label>
           <input className="input" value={username} onChange={(e) => { setUsername(e.target.value); setError('') }}
-                 placeholder="e.g. maria" autoFocus />
+                 placeholder="e.g. president" autoFocus />
         </div>
 
         {error && (

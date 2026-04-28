@@ -71,6 +71,7 @@ export default function Treasurer() {
         <div className="space-y-6">
           <SponsorshipFunnelCard />
           <InsightsCard />
+          <NextActionsCard />
         </div>
       </div>
     </div>
@@ -91,14 +92,14 @@ function Header() {
           <div>
             <h2 className="text-2xl font-bold text-navy-900">Treasurer Dashboard</h2>
             <p className="text-sm text-slate-500">
-              Finance + analytics view — budget tracking, event ROI, and sponsorship pipeline
+              Track budget, evaluate events, and make smarter decisions for the club.
             </p>
           </div>
         </div>
       </div>
       <div className="flex gap-2">
         <button className="btn-secondary text-sm">
-          <Calendar className="w-4 h-4" /> Spring 2025
+          <Calendar className="w-4 h-4" /> Spring 2026
         </button>
         <button className="btn-primary text-sm">
           <ArrowUpRight className="w-4 h-4" /> Generate Report
@@ -166,9 +167,9 @@ function SpendByCategoryCard() {
                   <span className="font-semibold text-navy-800">{c.category}</span>
                 </div>
                 <div className="text-xs text-slate-500">
-                  <span className="font-bold text-navy-900">${c.spent}</span>
+                  <span className="font-bold text-navy-900">${c.spent.toLocaleString()}</span>
                   <span className="mx-1">of</span>
-                  <span>${c.budget}</span>
+                  <span>${c.budget.toLocaleString()}</span>
                   <span className={`ml-2 font-bold ${overBudget ? 'text-rose-600' : pct > 80 ? 'text-amber-600' : 'text-emerald-600'}`}>
                     {pct}%
                   </span>
@@ -220,21 +221,41 @@ function EventROICard() {
       <div className="flex items-start justify-between mb-4 flex-wrap gap-3">
         <div>
           <h3 className="font-bold text-navy-900 flex items-center gap-2">
-            <Award className="w-4 h-4 text-amber-500" /> Event ROI Tracker
+            <Award className="w-4 h-4 text-amber-500" /> Which events are worth running again?
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
             Cost vs. attendance × engagement. Higher ROI = more value per dollar spent.
           </p>
         </div>
-        <div className="flex gap-2">
-          <select className="select text-xs py-1.5" value={filter} onChange={(e) => setFilter(e.target.value)}>
-            {types.map((t) => <option key={t}>{t}</option>)}
-          </select>
-          <select className="select text-xs py-1.5" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="roi">Sort by ROI</option>
-            <option value="cost">Sort by cost</option>
-            <option value="date">Sort by date</option>
-          </select>
+        <div className="flex gap-2 items-center">
+          <div className="relative">
+            <Filter className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <select
+              className="appearance-none bg-white border border-slate-200 rounded-lg pl-8 pr-7 py-1.5 text-xs font-semibold text-navy-700 cursor-pointer hover:border-brand-300 transition focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              {types.map((t) => <option key={t}>{t}</option>)}
+            </select>
+            <svg className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+          <div className="relative">
+            <BarChart3 className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <select
+              className="appearance-none bg-white border border-slate-200 rounded-lg pl-8 pr-7 py-1.5 text-xs font-semibold text-navy-700 cursor-pointer hover:border-brand-300 transition focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="roi">Sort by ROI</option>
+              <option value="cost">Sort by cost</option>
+              <option value="date">Sort by date</option>
+            </select>
+            <svg className="w-3 h-3 text-slate-400 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
         </div>
       </div>
 
@@ -242,11 +263,11 @@ function EventROICard() {
       <div className="grid grid-cols-3 gap-3 mb-5 p-3 bg-slate-50 rounded-xl">
         <div>
           <div className="text-[10px] uppercase tracking-wide text-slate-500 font-semibold">Total Spent</div>
-          <div className="text-base font-bold text-navy-900">${totalCost}</div>
+          <div className="text-base font-bold text-navy-900">${totalCost.toLocaleString()}</div>
         </div>
         <div>
           <div className="text-[10px] uppercase tracking-wide text-slate-500 font-semibold">Total Attendance</div>
-          <div className="text-base font-bold text-navy-900">{totalAttendance}</div>
+          <div className="text-base font-bold text-navy-900">{totalAttendance.toLocaleString()}</div>
         </div>
         <div>
           <div className="text-[10px] uppercase tracking-wide text-slate-500 font-semibold">Avg ROI Score</div>
@@ -280,7 +301,7 @@ function EventROICard() {
                     <div className="font-semibold text-navy-900">{e.name}</div>
                     <div className="text-[11px] text-slate-500">{e.date} · {e.type}</div>
                   </td>
-                  <td className="px-2 py-3 text-navy-800 font-semibold">${e.cost}</td>
+                  <td className="px-2 py-3 text-navy-800 font-semibold">${e.cost.toLocaleString()}</td>
                   <td className="px-2 py-3 text-navy-800 flex items-center gap-1">
                     <Users className="w-3 h-3 text-slate-400" />
                     {e.attendance}
@@ -380,7 +401,7 @@ function SponsorshipFunnelCard() {
                       <div className="text-sm font-semibold truncate">{s.sponsor}</div>
                       <div className="text-[10px] opacity-75 truncate">{s.contact}</div>
                     </div>
-                    <div className="text-sm font-bold shrink-0">${s.amount}</div>
+                    <div className="text-sm font-bold shrink-0">${s.amount.toLocaleString()}</div>
                   </div>
                 ))}
               </div>
@@ -404,24 +425,70 @@ function InsightsCard() {
       <ul className="space-y-3 text-sm text-navy-800">
         <li className="flex gap-2">
           <span className="text-emerald-600 font-bold mt-0.5">✓</span>
-          <span><strong>Workshops are the highest-ROI format.</strong> Avg engagement 4.5/5 at $50–120/event. Recommend scaling up.</span>
+          <span><strong>Run more workshops.</strong> Highest ROI format — avg engagement 4.5/5 at $50–120/event. Scale up next semester.</span>
         </li>
         <li className="flex gap-2">
           <span className="text-amber-600 font-bold mt-0.5">⚠</span>
-          <span><strong>Socials are expensive per engaged attendee.</strong> Banquet ($680) and mixer ($450) account for 40% of spend at 3.6–4.1 engagement.</span>
+          <span><strong>Reduce social spending.</strong> Banquet ($680) and mixer ($450) account for 40% of spend at 3.6–4.1 engagement. Lower return per attendee.</span>
         </li>
         <li className="flex gap-2">
-          <span className="text-brand-600 font-bold mt-0.5">→</span>
-          <span><strong>Regional Bank verbal commit ($1,000)</strong> would cover the remaining MinneMUDAC travel gap. Follow up this week.</span>
+          <span className="text-brand-600 font-bold mt-0.5">💰</span>
+          <span><strong>Follow up with Regional Bank this week.</strong> $1,000 verbal commit covers the remaining MinneMUDAC travel gap.</span>
         </li>
         <li className="flex gap-2">
           <span className="text-slate-500 font-bold mt-0.5">○</span>
-          <span><strong>$130 left in Misc category</strong> — flexible reserve for Q4 surprises.</span>
+          <span><strong>Reserve $130 in Misc</strong> for end-of-semester surprises. No action needed yet.</span>
         </li>
       </ul>
-      <div className="mt-4 pt-4 border-t border-brand-100 text-[11px] text-slate-500">
-        These insights are auto-generated from event ROI + sponsorship data. In Phase 2, they'll update live as new events log.
+      <div className="mt-4 pt-4 border-t border-brand-100 text-[11px] text-slate-500 space-y-1">
+        <div>These insights are auto-generated from event ROI + sponsorship data. In Phase 2, they'll update live as new events log.</div>
+        <div className="flex items-center gap-1.5 text-brand-700 font-medium pt-1">
+          <Users className="w-3 h-3" /> Shareable with President &amp; VP for budget planning.
+        </div>
       </div>
+    </div>
+  )
+}
+
+// ----------------------------------------------------------------------------
+// NEXT ACTIONS CARD
+// Concrete next-step list to balance the right column visually and reinforce
+// that the Treasurer role drives decisions, not just reports them.
+// ----------------------------------------------------------------------------
+function NextActionsCard() {
+  const actions = [
+    { label: 'Follow up with Regional Bank',  due: 'This week',     priority: 'high' },
+    { label: 'Pitch Insurance Analytics Co.', due: 'Next 2 weeks',  priority: 'med'  },
+    { label: 'Review banquet ROI with team',  due: 'Before May 5',  priority: 'med'  },
+    { label: 'Lock in Q4 budget reserve plan', due: 'End of month', priority: 'low'  }
+  ]
+  const tone = {
+    high: { dot: 'bg-rose-500',    label: 'High'   },
+    med:  { dot: 'bg-amber-500',   label: 'Medium' },
+    low:  { dot: 'bg-slate-300',   label: 'Low'    }
+  }
+  return (
+    <div className="card p-6">
+      <h3 className="font-bold text-navy-900 flex items-center gap-2 mb-1">
+        <Target className="w-4 h-4 text-emerald-600" /> Next Actions
+      </h3>
+      <p className="text-xs text-slate-500 mb-4">
+        Concrete moves for this Treasurer this month.
+      </p>
+      <ul className="space-y-2.5">
+        {actions.map((a) => (
+          <li key={a.label} className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition cursor-pointer">
+            <div className={`w-2 h-2 rounded-full ${tone[a.priority].dot} mt-1.5 shrink-0`} />
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-semibold text-navy-900 leading-snug">{a.label}</div>
+              <div className="text-[11px] text-slate-500 mt-0.5">Due: {a.due}</div>
+            </div>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide shrink-0 mt-1">
+              {tone[a.priority].label}
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

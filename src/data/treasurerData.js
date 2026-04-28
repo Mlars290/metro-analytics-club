@@ -11,7 +11,7 @@ export const BUDGET = {
   totalAllocated: 4500,    // total semester budget
   spent:          2840,    // spent so far
   pendingPledged: 1500,    // sponsorship $ verbally committed but not received
-  asOf:           'Apr 28, 2025'
+  asOf:           'Apr 28, 2026'
 }
 
 // -- Spend by category (drives the bar chart) --

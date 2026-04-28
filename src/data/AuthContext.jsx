@@ -26,7 +26,7 @@ const VIEW_AS_KEY = 'mac_view_as'
 // FUTURE: remove these once you have real signups.
 const seedUsers = () => {
   const seeds = initialMembers.map((m) => ({
-    username: m.id.replace('mem-', ''),  // e.g. 'maria', 'sarah'
+    username: m.id.replace('mem-', ''),  // e.g. 'president', 'vp'
     name:     m.name,
     role:     m.role && Object.values(ROLES).includes(m.role) ? m.role : ROLES.MEMBER,
     major:    m.major,
@@ -43,8 +43,8 @@ const seedUsers = () => {
   }))
   // Add a Professor/Advisor seed account
   seeds.push({
-    username: 'yuezhang',
-    name: 'Dr. Yue Zhang',
+    username: 'advisor',
+    name: 'Advisor Demo',
     role: ROLES.ADVISOR,
     major: 'Faculty Advisor',
     year: 'Graduate',

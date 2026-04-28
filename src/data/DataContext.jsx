@@ -36,36 +36,36 @@ export function DataProvider({ children }) {
   const [activity, setActivity]           = useState(initial.activity       || initialActivity)
   const [joinRequests, setJoinRequests]   = useState(initial.joinRequests   || [])
   const [meetingNotes, setMeetingNotes]   = useState(initial.meetingNotes   || [
-    { id: 'note-1', title: 'Spring Kickoff Meeting', date: '2025-04-15', author: 'Sarah Chen',
+    { id: 'note-1', title: 'Spring Kickoff Meeting', date: '2025-04-15', author: 'Vice President Demo',
       body: 'Welcomed 12 new members. Outlined competition calendar. Assigned MinneMUDAC sub-leads.',
       decisions: ['Run Kaggle Titanic as the onboarding track for new members', 'Meet weekly Wednesdays 6 PM'],
       actionItems: [
-        { id: 'ai-1', task: 'Email faculty advisor about MinneMUDAC budget', assigneeId: 'mem-maria', deadline: '2025-04-22', done: true },
-        { id: 'ai-2', task: 'Set up Kaggle Titanic team page', assigneeId: 'mem-david', deadline: '2025-04-28', done: false }
+        { id: 'ai-1', task: 'Email faculty advisor about MinneMUDAC budget', assigneeId: 'mem-president', deadline: '2025-04-22', done: true },
+        { id: 'ai-2', task: 'Set up Kaggle Titanic team page', assigneeId: 'mem-secretary', deadline: '2025-04-28', done: false }
       ]
     }
   ])
   const [budgetNotes, setBudgetNotes]     = useState(initial.budgetNotes    || [
-    { id: 'budget-1', title: 'Spring Semester Budget', date: '2025-02-01', author: 'Jamie Park',
+    { id: 'budget-1', title: 'Spring Semester Budget', date: '2025-02-01', author: 'Treasurer Demo',
       amount: 1500, body: 'Allocated $500 for Kaggle submissions, $1000 for MinneMUDAC team supplies and travel.' }
   ])
   const [feedback, setFeedback]           = useState(initial.feedback       || [])
   const [teammatePosts, setTeammatePosts] = useState(initial.teammatePosts  || [
-    { id: 'tp-1', memberId: 'mem-noah', headline: 'Looking for a Kaggle team — beginner welcome to pair up!',
+    { id: 'tp-1', memberId: 'mem-member3', headline: 'Looking for a Kaggle team — beginner welcome to pair up!',
       lookingFor: 'Mentor or peer beginner', skills: ['Python', 'Statistics'], interests: ['Workshops', 'Kaggle'],
       availability: 'Light (1-3 hrs/wk)', date: '2025-04-20' },
-    { id: 'tp-2', memberId: 'mem-emma', headline: 'Want to join an Orbit Wars team — RL curious',
+    { id: 'tp-2', memberId: 'mem-member4', headline: 'Want to join an Orbit Wars team — RL curious',
       lookingFor: 'Advanced modelers / RL experience', skills: ['Python', 'ML'], interests: ['Competitions', 'AI / Deep Learning'],
       availability: 'Medium (4-6 hrs/wk)', date: '2025-04-23' }
   ])
   const [achievements, setAchievements]   = useState(initial.achievements   || [
-    { id: 'ach-1', memberId: 'mem-maria', kind: 'first-github',     date: '2025-02-10' },
-    { id: 'ach-2', memberId: 'mem-maria', kind: 'team-contributor', date: '2025-03-05' },
-    { id: 'ach-3', memberId: 'mem-maria', kind: 'competed',         date: '2025-03-22' },
-    { id: 'ach-4', memberId: 'mem-sarah', kind: 'first-github',     date: '2025-02-12' },
-    { id: 'ach-5', memberId: 'mem-sarah', kind: 'team-contributor', date: '2025-03-05' },
-    { id: 'ach-6', memberId: 'mem-david', kind: 'first-github',     date: '2025-03-01' },
-    { id: 'ach-7', memberId: 'mem-david', kind: 'competed',         date: '2025-04-01' }
+    { id: 'ach-1', memberId: 'mem-president', kind: 'first-github',     date: '2025-02-10' },
+    { id: 'ach-2', memberId: 'mem-president', kind: 'team-contributor', date: '2025-03-05' },
+    { id: 'ach-3', memberId: 'mem-president', kind: 'competed',         date: '2025-03-22' },
+    { id: 'ach-4', memberId: 'mem-vp', kind: 'first-github',     date: '2025-02-12' },
+    { id: 'ach-5', memberId: 'mem-vp', kind: 'team-contributor', date: '2025-03-05' },
+    { id: 'ach-6', memberId: 'mem-secretary', kind: 'first-github',     date: '2025-03-01' },
+    { id: 'ach-7', memberId: 'mem-secretary', kind: 'competed',         date: '2025-04-01' }
   ])
 
   // Persist any change

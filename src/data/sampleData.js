@@ -95,8 +95,8 @@ export const initialCompetitions = [
 // tasks:      [{ id, title, status, teamId }]   status: 'Not Started' | 'In Progress' | 'Done'
 export const initialMembers = [
   {
-    id: 'mem-maria',
-    name: 'Maria Larson',
+    id: 'mem-president',
+    name: 'President Demo',
     role: 'President',
     major: 'Data Science',
     year: 'Junior',
@@ -111,8 +111,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-sarah',
-    name: 'Sarah Chen',
+    id: 'mem-vp',
+    name: 'Vice President Demo',
     role: 'Vice President',
     major: 'Statistics',
     year: 'Senior',
@@ -127,8 +127,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-david',
-    name: 'David Kim',
+    id: 'mem-secretary',
+    name: 'Secretary Demo',
     role: 'Secretary',
     major: 'Computer Science',
     year: 'Sophomore',
@@ -143,8 +143,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-priya',
-    name: 'Priya Patel',
+    id: 'mem-member2',
+    name: 'Member Demo 2',
     role: 'Member',
     major: 'Business Analytics',
     year: 'Junior',
@@ -158,8 +158,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-jamie',
-    name: 'Jamie Park',
+    id: 'mem-treasurer',
+    name: 'Treasurer Demo',
     role: 'Treasurer',
     major: 'Mathematics',
     year: 'Senior',
@@ -174,8 +174,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-alex',
-    name: 'Alex Kim',
+    id: 'mem-member1',
+    name: 'Member Demo 1',
     role: 'Member',
     major: 'Data Science',
     year: 'Sophomore',
@@ -189,8 +189,8 @@ export const initialMembers = [
     ]
   },
   {
-    id: 'mem-noah',
-    name: 'Noah Williams',
+    id: 'mem-member3',
+    name: 'Member Demo 3',
     role: 'Member',
     major: 'Economics',
     year: 'Freshman',
@@ -202,8 +202,8 @@ export const initialMembers = [
     tasks: []
   },
   {
-    id: 'mem-emma',
-    name: 'Emma Rodriguez',
+    id: 'mem-member4',
+    name: 'Member Demo 4',
     role: 'Member',
     major: 'Computer Science',
     year: 'Junior',
@@ -213,7 +213,7 @@ export const initialMembers = [
     time: 'Medium (4-6 hrs/wk)',
     preferredRole: 'Modeling',
     tasks: [
-      { id: 't-11', title: 'Pair on baseline with David', status: 'In Progress', teamId: 'team-dynasty' }
+      { id: 't-11', title: 'Pair on baseline with Secretary', status: 'In Progress', teamId: 'team-dynasty' }
     ]
   }
 ]
@@ -230,13 +230,13 @@ export const initialTeams = [
     id: 'team-insight',
     name: 'Team Insight',
     competitionId: 'comp-minnemudac',
-    memberIds: ['mem-maria', 'mem-sarah', 'mem-priya'],
+    memberIds: ['mem-president', 'mem-vp', 'mem-member2'],
     currentTask: 'Initial EDA on the provided dataset',
     deadline: '2025-05-15',
     status: 'In Progress',
     progress: 75,
     teamsLink: 'https://teams.microsoft.com/l/channel/team-insight',
-    weeklyNotes: 'Strong start. Maria leading EDA, Sarah working on baseline model. Need to schedule a sync with Priya for the deck draft next week.',
+    weeklyNotes: 'Strong start. President leading EDA, VP working on baseline model. Need to schedule a sync with Member 2 for the deck draft next week.',
     repo: 'https://github.com/metro-analytics-club/team-insight',
     deliverables: { readme: true, notebook: true, visuals: true, writeup: false },
     checkins: [
@@ -248,13 +248,13 @@ export const initialTeams = [
     id: 'team-dynasty',
     name: 'Data Dynasty',
     competitionId: 'comp-titanic',
-    memberIds: ['mem-david', 'mem-emma', 'mem-noah'],
+    memberIds: ['mem-secretary', 'mem-member4', 'mem-member3'],
     currentTask: 'Submit baseline model to Kaggle',
     deadline: '2025-06-30',
     status: 'In Progress',
     progress: 60,
     teamsLink: '',
-    weeklyNotes: 'David has a logistic regression baseline. Noah is learning pandas — paired with Emma for the next session.',
+    weeklyNotes: 'Secretary has a logistic regression baseline. Member 3 is learning pandas — paired with Member 4 for the next session.',
     repo: 'https://github.com/metro-analytics-club/data-dynasty',
     deliverables: { readme: true, notebook: true, visuals: false, writeup: false },
     checkins: [
@@ -265,7 +265,7 @@ export const initialTeams = [
     id: 'team-predictors',
     name: 'The Predictors',
     competitionId: 'comp-playground',
-    memberIds: ['mem-jamie', 'mem-alex'],
+    memberIds: ['mem-treasurer', 'mem-member1'],
     currentTask: 'Choose July playground series and read rules',
     deadline: '2025-07-15',
     status: 'Review Needed',
@@ -280,7 +280,7 @@ export const initialTeams = [
     id: 'team-orbit',
     name: 'Orbit Aces',
     competitionId: 'comp-orbitwars',
-    memberIds: ['mem-sarah'],
+    memberIds: ['mem-vp'],
     currentTask: 'Review competition rules and build first agent skeleton',
     deadline: '2025-08-10',
     status: 'Not Started',
@@ -317,8 +317,8 @@ export const initialAnnouncements = [
 
 // ---------- ACTIVITY FEED (dashboard widget) ----------
 export const initialActivity = [
-  { id: 'act1', who: 'Sarah Chen',    what: 'updated task in Team Insight',           when: '2 hours ago' },
-  { id: 'act2', who: 'David Kim',     what: 'joined the club',                        when: '5 hours ago' },
+  { id: 'act1', who: 'Vice President Demo',    what: 'updated task in Team Insight',           when: '2 hours ago' },
+  { id: 'act2', who: 'Secretary Demo',     what: 'joined the club',                        when: '5 hours ago' },
   { id: 'act3', who: 'Data Dynasty',  what: 'submitted progress update',              when: '1 day ago'  },
   { id: 'act4', who: 'Officer',       what: 'added new resource: XGBoost Guide',      when: '2 days ago' }
 ]
