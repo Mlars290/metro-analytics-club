@@ -1,63 +1,60 @@
-# Metro Analytics Club — Competition Tracker
+# Metro Analytics Club — Competition Tracker (Demo Prototype)
 
-A club management dashboard for Metropolitan State University's Analytics Club. Built to help officers and members track competitions, teams, weekly check-ins, and member progress in one place.
+A club management dashboard concept designed for Metropolitan State University’s Analytics Club. This project demonstrates how competition tracking, team coordination, and member progress could be centralized in a single system.
 
-**Live demo:** metro-analytics-club.vercel.app
+> **Status:** Demo/prototype project (not deployed for official club operations)
+
+**Live demo:** https://metro-analytics-club.vercel.app
+
+---
 
 ## Features
 
-- **Six roles** with permission-aware UI: President, Vice President, Secretary, Treasurer, Professor/Advisor, Member
-- **Username-based login** with President "preview as other role" support
-- **Competitions** library (Kaggle, MinneMUDAC, Hackathons, Portfolio Projects)
-- **Teams** with progress tracking, member lists, and per-team detail pages
-- **GitHub Project Tracker** — repo links + deliverables checklist (README, notebook, visuals, write-up)
-- **Weekly Check-ins** — what we did, blockers, next steps, help needed
-- **Portfolio Readiness Score** for each team (0-100% based on deliverables)
-- **Skill-based Team Matching** that suggests balanced teams (mix of beginner / intermediate / advanced)
-- **Find a Teammate** board — members can post "looking for a team"
-- **Meeting Notes** with action items and decisions (Secretary/President)
-- **Budget Notes** (Treasurer/President)
-- **Resources hub** for tutorials, templates, and competition prep
-- **Achievements** with badges on member profiles
-- **Copy Teams Update** — generates a ready-to-paste Microsoft Teams weekly update
-- **Needs Attention** dashboard alerts (overdue check-ins, urgent deadlines, pending requests)
-- **Analytics** page with portfolio rankings, skill coverage, and achievement leaderboard
+- Six role-based interfaces: President, Vice President, Secretary, Treasurer, Advisor, Member
+- Username-based login with role preview (President view)
+- Competition library (Kaggle, MinneMUDAC, Hackathons, Portfolio Projects)
+- Team creation and progress tracking dashboards
+- GitHub project tracker with deliverables checklist
+- Weekly check-in system (progress, blockers, next steps)
+- Portfolio readiness scoring system (0–100%)
+- Skill-based team matching for balanced group formation
+- “Find a Teammate” board for open collaboration
+- Meeting notes with action items and decisions
+- Budget notes module (Treasurer/President)
+- Resource hub for competition preparation materials
+- Achievement badges for member engagement
+- Auto-generated team updates (copy-ready format)
+- Alerts dashboard for deadlines and missing updates
+- Analytics dashboard (skill coverage, progress, engagement)
+
+---
 
 ## Tech Stack
 
 - React 18 + Vite
 - Tailwind CSS
 - React Router
-- localStorage (no backend yet — Phase 2 will move to Supabase)
+- LocalStorage (frontend-only prototype; no backend)
+
+---
 
 ## Demo Accounts
 
-Sign in by username on the login screen:
+Login using role-based usernames:
 
-- `president` — President (full access)
-- `vicepresident` — Vice President
-- `secretary` — Secretary
-- `treasurer` — Treasurer
-- `advisor` — Professor / Advisor (read-only)
-- `member` — Member
+- `president` — full access
+- `vicepresident`
+- `secretary`
+- `treasurer`
+- `advisor` — read-only view
+- `member`
 
-> Demo uses placeholder accounts only. No real user data is included.
+> All accounts are simulated for demonstration purposes only.
+
+---
+
 ## Local Development
 
 ```bash
 npm install
 npm run dev
-```
-
-Open http://localhost:5173
-
-## Build for Production
-
-```bash
-npm run build
-```
-
-## Roadmap
-
-- **Phase 2:** Replace localStorage with Supabase for shared data and real authentication
-- **Phase 3:** Polish President dashboard with priority panel, smart matching suggestions, and weekly report generator
